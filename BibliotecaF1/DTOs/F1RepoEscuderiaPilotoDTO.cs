@@ -2,18 +2,18 @@
 
 namespace BibliotecaF1.DTOs
 {
-    public class F1PilotoGetDTO : IF1Key, IF1Piloto
+    public class F1RepoEscuderiaPilotoDTO : IF1Key
     {
         public int Id { get; set; }
         public string Nombre { get; set; } = string.Empty;
-        public DateTime FechaNaci { get; set; }
+        public DateTime FechaNacimiento { get; set; }
         public float Estatura { get; set; }
-        public int Peso { get; set; }
+        public float Peso { get; set; }
         public int Dorsal { get; set; }
         public string UrlPerfil { get; set; } = string.Empty;
         public bool EstaVivo { get; set; }
         public int Puntos { get; set; }
-        public int IdPais { get; set; }
-        public int IdEscuderia { get; set; }
+
+        public F1PaisGetDTO Pais { get; set; }
     }
 }

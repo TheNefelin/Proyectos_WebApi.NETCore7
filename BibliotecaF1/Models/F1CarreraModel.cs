@@ -2,7 +2,7 @@
 
 namespace BibliotecaF1.Models
 {
-    public class F1CarreraModel : IBaseKey, IF1Carrera
+    public class F1CarreraModel : IF1Key, IF1Carrera
     {
         public int Id { get; set; }
         public DateTime Fecha { get; set; }

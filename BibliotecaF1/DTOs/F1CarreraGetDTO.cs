@@ -2,7 +2,7 @@
 
 namespace BibliotecaF1.DTOs
 {
-    public class F1CarreraGetDTO : IBaseKey, IF1Carrera
+    public class F1CarreraGetDTO : IF1Key, IF1Carrera
     {
         public int Id { get; set; }
         public DateTime Fecha { get; set; }

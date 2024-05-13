@@ -2,7 +2,7 @@
 
 namespace BibliotecaF1.Models
 {
-    public class F1CircuitoModel : IBaseKey, IF1Circuito
+    public class F1CircuitoModel : IF1Key, IF1Circuito
     {
         public int Id { get; set; }
         public string Nombre { get; set; } = string.Empty;

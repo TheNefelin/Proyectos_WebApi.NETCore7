@@ -2,7 +2,7 @@
 
 namespace BibliotecaF1.DTOs
 {
-    public class F1EscuderiaGetDTO : IBaseKey, IF1Escuderia
+    public class F1EscuderiaGetDTO : IF1Key, IF1Escuderia
     {
         public int Id { get; set; }
         public string Nombre { get; set; } = String.Empty;

@@ -19,35 +19,32 @@ namespace Proyectos_WebApi.NETCore8.Controllers
 
         [HttpGet]
         [Route("F1-Escuderia")]
-        public async Task<ActionResult<IEnumerable<dynamic>>> GetAllEscuderia()
+        public async Task<ActionResult<IEnumerable<F1RepoEscuderiaDTO>>> GetAllEscuderia()
         {
-            var paises = await getPaises();
+            var paisesDto = await getPaises();
 
-            var entity = await _context.F1Escuderias
+            var escuderias = await _context.F1Escuderias
                 .Include(e => e.F1Piloto)
                 .ToListAsync();
 
-            var res = entity.Select(e => new 
+            var res = escuderias.Select(e => new F1RepoEscuderiaDTO
             {
-                e.Id,
-                e.Nombre,
-                e.UrlAuto,
-                //e.IdPais,
-                Pais = paises.Find(pa => pa.Id == e.IdPais),
-                Pilotos = e.F1Piloto == null ? null : e.F1Piloto.Select(p => new
+                Id = e.Id,
+                Nombre = e.Nombre,
+                UrlAuto = e.UrlAuto,
+                Pais = paisesDto.Find(pa => pa.Id == e.IdPais)!,
+                Pilotos = e.F1Piloto.Select(p => new F1RepoEscuderiaPilotoDTO
                 {
-                    p.Id,
-                    p.Nombre,
-                    p.FechaNaci,
-                    p.Estatura,
-                    p.Peso,
-                    p.Dorsal,
-                    p.UrlPerfil,
-                    p.EstaVivo,
-                    p.Puntos,
-                    //p.IdPais,
-                    //p.IdEscuderia,
-                    Pais = paises.Find(pa => pa.Id == p.IdPais),
+                    Id = p.Id,
+                    Nombre = p.Nombre,
+                    FechaNacimiento = p.FechaNaci,
+                    Estatura = p.Estatura,
+                    Peso = p.Peso,
+                    Dorsal = p.Dorsal,
+                    UrlPerfil = p.UrlPerfil,
+                    EstaVivo = p.EstaVivo,
+                    Puntos = p.Puntos,
+                    Pais = paisesDto.Find(pa => pa.Id == p.IdPais)!,
                 }).ToList(),
             }).ToList();
 
@@ -56,35 +53,32 @@ namespace Proyectos_WebApi.NETCore8.Controllers
 
         [HttpGet]
         [Route("F1-Pilotos")]
-        public async Task<ActionResult<IEnumerable<dynamic>>> GetAll()
+        public async Task<ActionResult<IEnumerable<F1RepoPilotoDTO>>> GetAll()
         {
-            var paises = await getPaises();
+            var paisesDto = await getPaises();
 
-            var entity = await _context.F1Pilotos
+            var pilotos = await _context.F1Pilotos
                 .Include(e => e.F1Escuderia)
                 .ToListAsync();
 
-            var res = entity.Select(e => new
+            var res = pilotos.Select(e => new F1RepoPilotoDTO
             {
-                e.Id,
-                e.Nombre,
-                e.FechaNaci,
-                e.Estatura,
-                e.Peso,
-                e.Dorsal,
-                e.UrlPerfil,
-                e.EstaVivo,
-                e.Puntos,
-                //e.IdPais,
-                //e.IdEscuderia,
-                Pais = paises.Find(pa => pa.Id == e.IdPais),
-                Escuderia = e.F1Escuderia == null ? null : new
+                Id = e.Id,
+                Nombre = e.Nombre,
+                FechaNacimiento = e.FechaNaci,
+                Estatura = e.Estatura,
+                Peso = e.Peso,
+                Dorsal = e.Dorsal,
+                UrlPerfil = e.UrlPerfil,
+                EstaVivo = e.EstaVivo,
+                Puntos = e.Puntos,
+                Pais = paisesDto.Find(pa => pa.Id == e.IdPais)!,
+                Escuderia = new F1RepoPilotoEscuderiaDTO
                 {
-                    e.F1Escuderia.Id,
-                    e.F1Escuderia.Nombre,
-                    e.F1Escuderia.UrlAuto,
-                    //e.F1Escuderia.IdPais,
-                    Pais = paises.Find(pa => pa.Id == e.F1Escuderia.IdPais),
+                    Id = e.F1Escuderia.Id,
+                    Nombre = e.F1Escuderia.Nombre,
+                    UrlAuto = e.F1Escuderia.UrlAuto,
+                    Pais = paisesDto.Find(pa => pa.Id == e.F1Escuderia.IdPais)!,
                 }
             }).ToList();
 
