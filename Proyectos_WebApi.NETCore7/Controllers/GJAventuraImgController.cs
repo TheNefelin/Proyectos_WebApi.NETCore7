@@ -1,5 +1,7 @@
-﻿using BibliotecaGuiaJuegos.DTOs;
+﻿using BibliotecaAuth.Utils;
+using BibliotecaGuiaJuegos.DTOs;
 using BibliotecaGuiaJuegos.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proyectos_WebApi.NETCore8.Connection;
@@ -8,6 +10,7 @@ namespace Proyectos_WebApi.NETCore7.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = AuthPerfilUsuario.Admin)]
     public class GJAventuraImgController : ControllerBase
     {
         private readonly ApiDbContext _context;
