@@ -29,7 +29,7 @@ namespace Proyectos_WebApi.NETCore8.Controllers
         [HttpPost]
         [Route("IniciarSesion")]
         public async Task<ActionResult<dynamic>> IniciarSesion(
-            [FromForm] AuthLoginDTO login,
+            AuthLoginDTO login,
             CancellationToken cancellationToken)
         {
             var usuario = await _context.AuthUsuario
@@ -73,7 +73,7 @@ namespace Proyectos_WebApi.NETCore8.Controllers
         [HttpPost]
         [Route("Registrarse")]
         public async Task<ActionResult<dynamic>> Registrarse(
-            [FromForm] AuthRegisterDTO register,
+            AuthRegisterDTO register,
             CancellationToken cancellationToken)
         {
             if (register.Clave1 != register.Clave2)

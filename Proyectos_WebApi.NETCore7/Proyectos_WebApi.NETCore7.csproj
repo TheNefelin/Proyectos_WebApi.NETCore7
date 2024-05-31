@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BibliotecaAuth\BibliotecaAuth.csproj" />
     <ProjectReference Include="..\BibliotecaF1\BibliotecaF1.csproj" />
+    <ProjectReference Include="..\BibliotecaGuiaJuegos\BibliotecaGuiaJuegos.csproj" />
   </ItemGroup>
 
 </Project>

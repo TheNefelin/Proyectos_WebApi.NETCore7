@@ -16,6 +16,11 @@ builder.Services.AddDbContext<ApiDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("RutaWebSQL"));
 });
 
+//builder.Services.AddDbContext<ApiDbContext>(options =>
+//{
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("RutaSQL"));
+//}, ServiceLifetime.Transient);
+
 // Servicio JWT ------------------------------------------------------
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -59,7 +64,7 @@ builder.Services.AddSwaggerGen(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
