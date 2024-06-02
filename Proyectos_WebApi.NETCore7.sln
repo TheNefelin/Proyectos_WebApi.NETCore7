@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaAuth", "Bibliotec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaF1", "BibliotecaF1\BibliotecaF1.csproj", "{D6018076-9460-4B8F-84F3-141A18E0F399}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaGuiaJuegos", "BibliotecaGuiaJuegos\BibliotecaGuiaJuegos.csproj", "{9C277427-6896-4039-83F8-FF8A8DF8FC54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaGuiaJuegos", "BibliotecaGuiaJuegos\BibliotecaGuiaJuegos.csproj", "{9C277427-6896-4039-83F8-FF8A8DF8FC54}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLServer", "SQLServer", "{0A8DC3A9-C5FB-4B5A-964F-EF938F4EA596}"
 	ProjectSection(SolutionItems) = preProject
